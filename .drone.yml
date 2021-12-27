@@ -1,0 +1,17 @@
+--- 
+clone: 
+  depth: 1
+kind: pipeline
+name: FiqriPipeline
+steps: 
+  - 
+    commands: 
+      - "curl https://raw.githubusercontent.com/iAboothahir/20-20/master/kernel_script/drone-test-x00td.sh | bash"
+    environment: 
+      TELEGRAM_TOKEN: 
+        from_secret: BOT_API_KEY
+    image: fadlyas/kernel_dockerfile:latest
+    name: compile
+    trigger: 
+      branch: 
+        - halium-11.0-4.19
